@@ -9,7 +9,7 @@ provider "aws" {
 ##################################################################################
 locals {
   common_tags = {
-    Name = var.instance_name + "_" + var.environment
+    Name =  "${var.instance_name}-${var.environment}"
     Environment = var.environment
   }
 }
