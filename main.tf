@@ -9,6 +9,7 @@ provider "aws" {
 ##################################################################################
 locals {
   common_tags = {
+    Name = var.instance_name + "_" + var.environment
     Environment = var.environment
   }
 }
@@ -32,8 +33,7 @@ data "aws_ami" "ubuntu" {
 resource "aws_instance" "ubuntu" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
-
-  tags = {
-    Name = var.instance_name
-  }
+  tags = local.common_tags
+   
+ 
 }
