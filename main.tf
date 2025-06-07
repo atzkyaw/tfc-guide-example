@@ -4,6 +4,14 @@
 provider "aws" {
   region = var.region
 }
+##################################################################################
+# RESOURCES
+##################################################################################
+locals {
+  common_tags = {
+    Environment = var.environment
+  }
+}
 
 data "aws_ami" "ubuntu" {
   most_recent = true
