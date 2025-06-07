@@ -11,6 +11,7 @@ locals {
   common_tags = {
     Name =  "${var.instance_name}-${var.environment}"
     Environment = var.environment
+    NewTag = "Justsomerandomthing-${var.environment}"
   }
 }
 
